@@ -11,6 +11,9 @@ Weekly briefings live as Markdown files in content/briefings/YYYY-MM-DD.md with 
     ## Top story
     ...
 
+Archive editions (written later about an earlier week) add `archive: true` and `compiled: YYYY-MM-DD`.
+They keep the Monday-after-the-week `date` for ordering but are labeled with the date they were compiled.
+
 build() turns them into /blog/<date>-cmmc-weekly-briefing.html, the /blog index, feed.xml and sitemap.xml,
 and adds a "Latest briefing" teaser to the home page. Files whose header has `draft: true` are skipped.
 """
@@ -95,13 +98,21 @@ def load_posts(root):
                 raise ValueError(f"{path}: header needs '{key}'")
         date = dt.date.fromisoformat(meta["date"])
         slug = meta.get("slug") or f"{date.isoformat()}-cmmc-weekly-briefing"
-        posts.append({**meta, "date": date, "slug": slug, "url": f"/blog/{slug}", "body": markdown(m.group(2))})
+        archive = meta.get("archive", "").lower() == "true"
+        compiled = dt.date.fromisoformat(meta["compiled"]) if archive else date
+        posts.append({**meta, "archive": archive, "compiled": compiled, "date": date, "slug": slug, "url": f"/blog/{slug}", "body": markdown(m.group(2))})
     posts.sort(key=lambda p: p["date"], reverse=True)
     return posts
 
 
 def nice(d):
     return d.strftime("%B %-d, %Y")
+
+
+def byline(p):
+    if p["archive"]:
+        return f"Archive edition compiled {nice(p['compiled'])}"
+    return f"Published {nice(p['date'])}"
 
 
 # ------------------------------------------------------------------ builders
@@ -112,19 +123,21 @@ def build(page, cta_band, SITE, OUT):
     for p in posts:
         esc_title = html.escape(p["title"])
         week = f'<p class="eyebrow">CMMC Weekly Briefing · {html.escape(p["week"])}</p>' if p.get("week") else '<p class="eyebrow">CMMC Weekly Briefing</p>'
+        note = (f'        <p class="post-note">Archive edition. We started publishing weekly briefings in September 2026 and compiled this one on {nice(p["compiled"])} '
+                f'to cover {html.escape(p.get("week", "an earlier week"))}. Some sources were published after that week and are dated in the text.</p>\n') if p["archive"] else ""
         body = f"""
   <section class="hero">
     <div class="wrap">
       {week}
       <h1 class="post-title">{esc_title}</h1>
-      <p class="byline">Published {nice(p["date"])} · Compiled by Vigilant Cybersecurity · Reviewed by Hutch White, LCCA</p>
+      <p class="byline">{byline(p)} · Compiled by Vigilant Cybersecurity · Reviewed by Hutch White, LCCA</p>
     </div>
   </section>
 
   <section class="section" aria-label="Briefing">
     <div class="wrap">
       <article class="doc post">
-{p["body"]}
+{note}{p["body"]}
         <p class="post-note">This briefing summarizes public sources for general awareness. It is not legal advice. Check the linked primary sources before acting on any item.</p>
         <p><a href="/blog">All weekly briefings</a></p>
       </article>
@@ -133,11 +146,11 @@ def build(page, cta_band, SITE, OUT):
 {cta_band("Turn the news into a plan", "Not sure how this week's changes affect your contracts? A free scoping call is the fastest way to find out.")}
 """
         graph = [{"@type": "BlogPosting", "@id": f"{SITE}{p['url']}#post", "headline": p["title"][:110],
-                  "description": p["summary"], "datePublished": p["date"].isoformat(),
-                  "dateModified": p["date"].isoformat(), "mainEntityOfPage": f"{SITE}{p['url']}",
+                  "description": p["summary"], "datePublished": p["compiled"].isoformat(),
+                  "dateModified": p["compiled"].isoformat(), "mainEntityOfPage": f"{SITE}{p['url']}",
                   "author": {"@id": f"{SITE}/#business"}, "publisher": {"@id": f"{SITE}/#business"},
                   "image": f"{SITE}/assets/og-image.png"}]
-        extra_head = f'\n<meta property="article:published_time" content="{p["date"].isoformat()}">'
+        extra_head = f'\n<meta property="article:published_time" content="{p["compiled"].isoformat()}">'
         doc = page(p["url"], f"{esc_title} | Vigilant Cybersecurity", html.escape(p["summary"]), esc_title, body,
                    graph, og_type="article", extra_head=extra_head, nav_path="/blog")
         open(os.path.join(OUT, "blog", p["slug"] + ".html"), "w", encoding="utf-8").write(doc)
@@ -155,7 +168,7 @@ def build(page, cta_band, SITE, OUT):
           <p class="label">{html.escape(p.get("week", nice(p["date"])))}</p>
           <h2><a href="{p["url"]}">{html.escape(p["title"])}</a></h2>
           <p>{html.escape(p["summary"])}</p>
-          <p class="meta">Published {nice(p["date"])}</p>
+          <p class="meta">{byline(p)}</p>
         </li>""" for p in posts)
         listing = f'      <ol class="post-list">\n{cards}\n      </ol>'
     else:
@@ -211,7 +224,7 @@ def build(page, cta_band, SITE, OUT):
     # sitemap
     today = dt.date.today().isoformat()
     urls = [("/", today), ("/cmmc", today), ("/services", today), ("/blog", posts[0]["date"].isoformat() if posts else today),
-            ("/about", today), ("/contact", today), ("/privacy", today)] + [(p["url"], p["date"].isoformat()) for p in posts]
+            ("/about", today), ("/contact", today), ("/privacy", today)] + [(p["url"], p["compiled"].isoformat()) for p in posts]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{d}</lastmod></url>" for u, d in urls]
     sm.append("</urlset>")
@@ -225,7 +238,7 @@ def build(page, cta_band, SITE, OUT):
       <title>{html.escape(p["title"])}</title>
       <link>{SITE}{p["url"]}</link>
       <guid isPermaLink="true">{SITE}{p["url"]}</guid>
-      <pubDate>{rfc822(p["date"])}</pubDate>
+      <pubDate>{rfc822(p["compiled"])}</pubDate>
       <description>{html.escape(p["summary"])}</description>
     </item>""" for p in posts[:20])
     feed = f"""<?xml version="1.0" encoding="UTF-8"?>
