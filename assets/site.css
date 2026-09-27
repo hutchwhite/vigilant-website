@@ -361,3 +361,11 @@ form.msg button:disabled{opacity:.6;cursor:wait}
 .photo{margin:0;display:grid;gap:8px;max-width:380px}
 .photo img{display:block;width:100%;height:auto;border-radius:4px}
 .photo figcaption{font-size:.8rem;color:var(--muted);line-height:1.4}
+
+/* phones: photo gets its own clear band at the top of the banner, then fades into navy behind the text */
+@media (max-width:760px){
+  .hero[class*="photo-"]{padding-top:250px;background-color:var(--night);background-repeat:no-repeat;background-size:100% 100%,auto 290px}
+  .photo-e3{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-e3-960.webp");background-position:0 0,50% 0}
+  .photo-sm1a{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-sm1a-960.webp");background-position:0 0,50% 0}
+  .photo-cordova{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-cordova-960.webp");background-position:0 0,62% 0}
+}
