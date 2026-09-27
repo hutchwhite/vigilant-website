@@ -147,7 +147,7 @@ home = f"""
       <div class="teaser">
         <p class="label">CMMC status · Updated September 27, 2026</p>
         <h2 id="now-h">Phase 2 is on hold. Your safeguarding obligations are not.</h2>
-        <p>The Department of War suspended the November 2026 Phase 2 transition, and contracts are being revised to allow only Level 1 (Self) and Level 2 (Self). NIST SP 800-171 Rev. 2 under DFARS 252.204-7012 and the FAR basic safeguarding requirements still apply.</p>
+        <p>The Department of War suspended the November 2026 Phase 2 transition, and contracting officers are to "remove or revise the CMMC requirements" in solicitations and contracts. Contracts may still require Level 1 (Self) or Level 2 (Self). NIST SP 800-171 Rev. 2 under DFARS 252.204-7012 and the FAR basic safeguarding requirements still apply.</p>
         <p><a class="more" href="/cmmc">Read what this means for your contracts</a></p>
       </div>
     </div>
@@ -572,7 +572,7 @@ FAQ = [
     ("Is CMMC Phase 2 still starting November 10, 2026?",
      "No. On July 13, 2026, the Department of War CIO suspended the Phase 2 transition and later rollout milestones while a Reform Task Force reviews the program. No new date has been set."),
     ("Can a new contract still require CMMC?",
-     "Yes. DFARS Class Deviation 2026-O0025 lets contracts require CMMC Level 1 (Self) or Level 2 (Self). Requirements for third-party (C3PAO) certification are being removed or revised."),
+     "Yes. DFARS Class Deviation 2026-O0025, Revision 3 directs contracting officers to remove or revise the CMMC requirements in new and existing solicitations and contracts, and it permits requiring CMMC Level 1 (Self) or Level 2 (Self)."),
     ("If I handle CUI, do I still have to meet NIST SP 800-171?",
      "Yes. DFARS 252.204-7012 still requires NIST SP 800-171 Rev. 2 for covered contractor systems, and DoD can still conduct Medium or High assessments whose scores are posted in SPRS."),
     ("What does a small, FCI-only contractor need?",
