@@ -307,3 +307,36 @@ form.msg button:disabled{opacity:.6;cursor:wait}
 @media (max-width:420px){.cred-list{grid-template-columns:1fr}}
 .cred-list{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:720px){.cred-list{grid-template-columns:1fr}}
+
+/* credentials v3: badge-forward tiles, both groups on one row on desktop */
+.cred-groups{display:grid;grid-template-columns:2fr 4fr;gap:20px 28px;align-items:start}
+.cred-group + .cred-group{margin-top:0}
+.cred-group .label{padding-bottom:8px;border-bottom:2px solid var(--line)}
+.cred-group.cmmc .label{border-bottom-color:var(--glacier)}
+.cred-group.cmmc .cred-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cred-group.sec .cred-list{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cred{grid-template-columns:1fr;justify-items:center;text-align:center;align-content:start;gap:10px;padding:20px 12px 18px;height:100%}
+.cred .badge{width:100%;max-width:112px;aspect-ratio:1;padding:8px}
+.cred .abbr{font-family:var(--f-display);font-stretch:80%;font-weight:800;font-size:1.25rem;letter-spacing:.02em;color:var(--brand)}
+.cred .name{font-weight:400;font-size:.9rem;line-height:1.35;color:var(--text);text-wrap:balance}
+.cred .issuer{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.cred.lead{border-top:4px solid var(--glacier)}
+.cred-list{align-items:stretch}
+@media (max-width:1000px){
+  .cred-groups{grid-template-columns:1fr}
+  .cred-group.sec .cred-list{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  .cred-group.cmmc .cred-list,.cred-group.sec .cred-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cred .badge{max-width:96px}
+}
+/* tighten the bio photo on wide screens so text leads */
+@media (min-width:821px){.bio{grid-template-columns:minmax(0,1.9fr) minmax(0,1fr)}.bio-side{max-width:320px;justify-self:end}}
+.cred-groups{align-items:stretch}
+.cred-group{grid-template-rows:auto 1fr}
+.cred-list{grid-auto-rows:1fr;height:100%}
+.cred{grid-template-rows:auto 1fr}
+.cred > div{display:flex;flex-direction:column;align-items:center;gap:4px;height:100%}
+.cred .issuer{margin-top:auto;padding-top:6px}
+@media (max-width:1000px){.cred-list{height:auto}}
+.cred.lead{padding-top:16px}
