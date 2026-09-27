@@ -211,7 +211,7 @@ def build(page, cta_band, SITE, OUT):
     # sitemap
     today = dt.date.today().isoformat()
     urls = [("/", today), ("/cmmc", today), ("/services", today), ("/blog", posts[0]["date"].isoformat() if posts else today),
-            ("/about", today), ("/contact", today), ("/privacy", today)] + [(p["url"], p["date"].isoformat()) for p in posts]
+            ("/about", today), ("/partners", today), ("/contact", today), ("/privacy", today)] + [(p["url"], p["date"].isoformat()) for p in posts]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{d}</lastmod></url>" for u, d in urls]
     sm.append("</urlset>")

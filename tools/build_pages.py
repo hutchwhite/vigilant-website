@@ -88,6 +88,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
       <li><a href="/cmmc">CMMC Status</a></li>
       <li><a href="/services">Services</a></li>
       <li><a href="/about">About</a></li>
+      <li><a href="/partners">Partners</a></li>
       <li><a href="/contact">Contact</a></li>
       <li><a href="/privacy">Privacy</a></li>
     </ul>
@@ -441,6 +442,7 @@ contact = f"""
               <option value="general">General question</option>
               <option value="starter-kit">Send me the CMMC Resource Starter Kit</option>
               <option value="updates">Email me CMMC status updates</option>
+              <option value="partner">MSP or VAR partnership</option>
               <option value="level-1">CMMC Level 1</option>
               <option value="level-2">CMMC Level 2</option>
               <option value="gap-assessment">Gap Assessment</option>
@@ -468,6 +470,91 @@ contact = f"""
       <p class="prose">Vigilant Cybersecurity is based in <strong>Alaska</strong> and serves defense contractors and regulated organizations <strong>nationwide</strong>. Most engagements are conducted remotely, with on-site work available across Alaska and by arrangement in the lower 48.</p>
     </div>
   </section>
+"""
+
+
+# ---------------------------------------------------------------- PARTNERS (MSP / VAR mock assessment)
+partners = f"""
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">For MSP and VAR partners</p>
+      <h1>Independent Mock Assessments for Your CMMC Clients</h1>
+      <p class="lede">You've done the readiness work. Before your client faces a C3PAO, get an independent check from a Lead CMMC Certified Assessor, run the way a real Level 2 assessment is run.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{BOOK}">Book a partner call</a>
+        <a class="btn btn-ghost" href="/contact?topic=partner">Send a partner inquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="what-h">
+    <div class="wrap">
+      <h2 id="what-h">What the mock assessment covers</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <p class="label">Scope</p>
+          <h3>All 110 Level 2 requirements</h3>
+          <p>Each NIST SP 800-171 Rev. 2 requirement is evaluated against its assessment objectives in NIST SP 800-171A, following the phases of the CMMC Assessment Process: scoping review, document review, interviews, and examination of evidence.</p>
+        </article>
+        <article class="card">
+          <p class="label">Deliverable</p>
+          <h3>Findings in assessment language</h3>
+          <p>A written report rating every requirement MET or NOT MET, with the evidence gaps, SSP and scoping observations, and a plain readiness summary for the client's leadership.</p>
+        </article>
+        <article class="card">
+          <p class="label">Assessor</p>
+          <h3>Led by an LCCA</h3>
+          <p>Hutch White, Lead CMMC Certified Assessor and CISSP, runs every mock assessment personally. Remote by default, on-site available across Alaska.</p>
+        </article>
+        <article class="card">
+          <p class="label">Level 1</p>
+          <h3>Level 1 checks too</h3>
+          <p>For FCI-only clients, a shorter review against the 15 basic safeguarding requirements in FAR 52.240-93 before they sign their annual affirmation.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="not-h">
+    <div class="wrap">
+      <div class="teaser">
+        <p class="label">Independence</p>
+        <h2 id="not-h">What a mock assessment is not</h2>
+        <ul class="checks">
+          <li>It is not a CMMC certification assessment. No results are entered in eMASS or SPRS, and it does not produce a CMMC status.</li>
+          <li>It does not guarantee the outcome of a C3PAO assessment.</li>
+          <li>It is advisory work. Under CMMC's conflict-of-interest rules, Hutch will not serve on the certification assessment of any organization he has mock-assessed.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">How it works with partners</h2>
+      <ol class="phases">
+        <li><div><h3>Readiness is done</h3><p>Your team completes implementation and documentation with the client: SSP, policies, POA&amp;M, asset inventory and network diagrams.</p></div></li>
+        <li><div><h3>Scoping call</h3><p>A short call with you and the client confirms the assessment scope, the CUI boundary, and the evidence to prepare.</p></div></li>
+        <li><div><h3>Document review</h3><p>Hutch reviews the SSP and supporting documents remotely against the assessment objectives.</p></div></li>
+        <li><div><h3>Interviews and evidence</h3><p>Interviews with the people who run the controls, and examination of configurations and records. Remote or on-site in Alaska.</p></div></li>
+        <li><div><h3>Findings debrief</h3><p>A walkthrough of results with you and the client, followed by the written report.</p></div></li>
+        <li><div><h3>Remediation and re-check</h3><p>Your team closes the gaps. An optional targeted re-check covers only the requirements that were NOT MET.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why-h">
+    <div class="wrap">
+      <h2 id="why-h">Why partners use it</h2>
+      <ul class="risks">
+        <li><strong>Independent eyes before the real ones</strong>Find the gaps a C3PAO would find while there is still time to fix them.</li>
+        <li><strong>Protects your reputation</strong>A failed certification reflects on the team that did the readiness work. A mock assessment lowers that risk.</li>
+        <li><strong>The client stays yours</strong>Vigilant reports findings to you and the client together, and you lead the remediation.</li>
+        <li><strong>Local and practitioner-led</strong>An Anchorage-based LCCA who can be on-site, not a national firm fitting you into a queue.</li>
+      </ul>
+    </div>
+  </section>
+{cta_band("Partner with Vigilant", "Partner terms are set per partnership. Book a call to talk through your client pipeline and how mock assessments fit your readiness offering.")}
 """
 
 # ---------------------------------------------------------------- PRIVACY
@@ -655,6 +742,9 @@ PAGES = {
     "contact.html": ("/contact", "Book a Free CMMC Scoping Call | Vigilant Cybersecurity",
                      "Talk directly with a practitioner about your CMMC scope, contracts and timeline. Anchorage-based, serving contractors on-site and remotely.",
                      "Contact Vigilant Cybersecurity", contact, None),
+    "partners.html": ("/partners", "CMMC Mock Assessments for MSP Partners | Vigilant Cybersecurity",
+                      "Independent CMMC Level 2 mock assessments led by a Lead CMMC Certified Assessor, for MSPs and VARs whose clients have completed readiness work.",
+                      "Independent Mock Assessments for Your CMMC Clients", partners, None),
     "privacy.html": ("/privacy", "Privacy Policy | Vigilant Cybersecurity",
                      "How Vigilant Cybersecurity collects and protects information submitted through this site.",
                      "Privacy Policy", privacy, None),
