@@ -288,3 +288,5 @@ form.msg button:disabled{opacity:.6;cursor:wait}
 .creds ul.badges{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
 .creds ul.badges img{width:100%;height:auto;max-width:72px}
 @media (max-width:820px){.bio-side{display:contents}.bio-side .portrait{order:-1}.bio-side .creds{order:0;max-width:420px}}
+.creds ul.badges{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;justify-items:center}
+.creds ul.badges img{max-width:84px}
