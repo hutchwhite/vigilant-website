@@ -44,7 +44,9 @@
         "@id": "https://vigilantcybersecurity.net/about#hutch",
         "name": "Hutch White"
       },
-      "description": "Practitioner-led CMMC Level 1 and Level 2 readiness for small and mid-sized defense contractors."
+      "description": "Practitioner-led CMMC Level 1 and Level 2 readiness for small and mid-sized defense contractors.",
+      "logo": "https://vigilantcybersecurity.net/assets/logo-512.png",
+      "image": "https://vigilantcybersecurity.net/assets/og-image.png"
     },
     {
       "@type": "WebPage",
@@ -55,6 +57,60 @@
       "publisher": {
         "@id": "https://vigilantcybersecurity.net/#business"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vigilantcybersecurity.net/cmmc#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is CMMC Phase 2 still starting November 10, 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. On July 13, 2026, the Department of War CIO suspended the Phase 2 transition and later rollout milestones while a Reform Task Force reviews the program. No new date has been set."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a new contract still require CMMC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. DFARS Class Deviation 2026-O0025 lets contracts require CMMC Level 1 (Self) or Level 2 (Self). Requirements for third-party (C3PAO) certification are being removed or revised."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "If I handle CUI, do I still have to meet NIST SP 800-171?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. DFARS 252.204-7012 still requires NIST SP 800-171 Rev. 2 for covered contractor systems, and DoD can still conduct Medium or High assessments whose scores are posted in SPRS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a small, FCI-only contractor need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Level 1 covers Federal Contract Information: the 15 basic safeguarding requirements in FAR 52.240-93 (formerly 52.204-21). When a contract requires Level 1 (Self), you post an annual self-assessment in SPRS and an affirming official signs an annual affirmation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to get ready?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Gap Assessment takes 2 to 4 weeks. A full CMMC Readiness engagement typically runs 3 to 6 months, depending on your starting point and target level."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the consultant who prepares us also assess us?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. CMMC's conflict-of-interest rules separate advisory work from assessment. Hutch will not serve on a CMMC assessment of any organization Vigilant Cybersecurity has advised."
+          }
+        }
+      ]
     }
   ]
 }
@@ -63,6 +119,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" type="application/rss+xml" title="CMMC Weekly Briefing" href="https://vigilantcybersecurity.net/feed.xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <meta property="og:image" content="https://vigilantcybersecurity.net/assets/og-image.png">
 </head>
@@ -76,6 +134,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/cmmc" aria-current="page">CMMC</a></li>
         <li><a href="/services">Services</a></li>
+        <li><a href="/blog">Briefings</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
         <li class="cta"><a class="btn btn-primary" href="https://outlook.office.com/book/VigilantCybersecurity1@vigilantcybersecurity.net/">Book a call</a></li>
@@ -237,6 +296,20 @@
         <li>Assessment Support and Continuous Compliance Monitoring</li>
       </ul>
       <p><a href="/services">See service packages and timelines</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <h2 id="faq-h">CMMC Questions We Hear Most</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>Is CMMC Phase 2 still starting November 10, 2026?</summary><p>No. On July 13, 2026, the Department of War CIO suspended the Phase 2 transition and later rollout milestones while a Reform Task Force reviews the program. No new date has been set.</p></details>
+        <details class="faq-item"><summary>Can a new contract still require CMMC?</summary><p>Yes. DFARS Class Deviation 2026-O0025 lets contracts require CMMC Level 1 (Self) or Level 2 (Self). Requirements for third-party (C3PAO) certification are being removed or revised.</p></details>
+        <details class="faq-item"><summary>If I handle CUI, do I still have to meet NIST SP 800-171?</summary><p>Yes. DFARS 252.204-7012 still requires NIST SP 800-171 Rev. 2 for covered contractor systems, and DoD can still conduct Medium or High assessments whose scores are posted in SPRS.</p></details>
+        <details class="faq-item"><summary>What does a small, FCI-only contractor need?</summary><p>Level 1 covers Federal Contract Information: the 15 basic safeguarding requirements in FAR 52.240-93 (formerly 52.204-21). When a contract requires Level 1 (Self), you post an annual self-assessment in SPRS and an affirming official signs an annual affirmation.</p></details>
+        <details class="faq-item"><summary>How long does it take to get ready?</summary><p>A Gap Assessment takes 2 to 4 weeks. A full CMMC Readiness engagement typically runs 3 to 6 months, depending on your starting point and target level.</p></details>
+        <details class="faq-item"><summary>Can the consultant who prepares us also assess us?</summary><p>No. CMMC's conflict-of-interest rules separate advisory work from assessment. Hutch will not serve on a CMMC assessment of any organization Vigilant Cybersecurity has advised.</p></details>
+      </div>
     </div>
   </section>
 

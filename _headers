@@ -12,3 +12,13 @@
 
 /assets/*
   Cache-Control: public, max-age=86400
+
+# keep Cloudflare preview addresses out of search results (the real site is vigilantcybersecurity.net)
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
