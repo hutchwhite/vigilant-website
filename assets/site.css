@@ -340,3 +340,17 @@ form.msg button:disabled{opacity:.6;cursor:wait}
 .cred .issuer{margin-top:auto;padding-top:6px}
 @media (max-width:1000px){.cred-list{height:auto}}
 .cred.lead{padding-top:16px}
+
+/* photo banners: a navy scrim keeps text readable, photo shows through on the right */
+.hero[class*="photo-"]{background-size:cover,cover;background-repeat:no-repeat}
+.photo-c17{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.86) 42%,rgba(15,18,54,.35) 100%),url("/assets/img/hero-c17-1920.webp");background-position:center,70% 60%}
+.photo-sm1a{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.86) 45%,rgba(15,18,54,.45) 100%),url("/assets/img/hero-sm1a-1920.webp");background-position:center,center 45%}
+.photo-cordova{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.86) 45%,rgba(15,18,54,.4) 100%),url("/assets/img/hero-cordova-1920.webp");background-position:center,center 40%}
+@media (max-width:760px){
+  .photo-c17{background-image:linear-gradient(rgba(15,18,54,.86),rgba(15,18,54,.9)),url("/assets/img/hero-c17-960.webp");background-position:center,72% center}
+  .photo-sm1a{background-image:linear-gradient(rgba(15,18,54,.86),rgba(15,18,54,.9)),url("/assets/img/hero-sm1a-960.webp")}
+  .photo-cordova{background-image:linear-gradient(rgba(15,18,54,.86),rgba(15,18,54,.9)),url("/assets/img/hero-cordova-960.webp")}
+}
+.hero .credit{justify-self:end;margin-top:18px;font-size:.72rem;color:var(--on-dark-muted);opacity:.85;text-align:right}
+.hero:has(+ .status) .credit{margin-bottom:-8px}
+.foot-meta span:last-child{max-width:44rem;font-size:.8rem}
