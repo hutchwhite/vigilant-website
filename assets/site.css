@@ -343,11 +343,11 @@ form.msg button:disabled{opacity:.6;cursor:wait}
 
 /* photo banners: a navy scrim keeps text readable, photo shows through on the right */
 .hero[class*="photo-"]{background-size:cover,cover;background-repeat:no-repeat}
-.photo-c17{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.86) 42%,rgba(15,18,54,.35) 100%),url("/assets/img/hero-c17-1920.webp");background-position:center,70% 60%}
+.photo-e3{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 40%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-e3-1920.webp");background-position:center,62% 50%}
 .photo-sm1a{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.86) 45%,rgba(15,18,54,.45) 100%),url("/assets/img/hero-sm1a-1920.webp");background-position:center,center 45%}
 .photo-cordova{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.86) 45%,rgba(15,18,54,.4) 100%),url("/assets/img/hero-cordova-1920.webp");background-position:center,center 40%}
 @media (max-width:760px){
-  .photo-c17{background-image:linear-gradient(rgba(15,18,54,.86),rgba(15,18,54,.9)),url("/assets/img/hero-c17-960.webp");background-position:center,72% center}
+  .photo-e3{background-image:linear-gradient(rgba(15,18,54,.84),rgba(15,18,54,.9)),url("/assets/img/hero-e3-960.webp");background-position:center,60% center}
   .photo-sm1a{background-image:linear-gradient(rgba(15,18,54,.86),rgba(15,18,54,.9)),url("/assets/img/hero-sm1a-960.webp")}
   .photo-cordova{background-image:linear-gradient(rgba(15,18,54,.86),rgba(15,18,54,.9)),url("/assets/img/hero-cordova-960.webp")}
 }
