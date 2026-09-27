@@ -369,3 +369,11 @@ form.msg button:disabled{opacity:.6;cursor:wait}
   .photo-sm1a{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-sm1a-960.webp");background-position:0 0,50% 0}
   .photo-cordova{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-cordova-960.webp");background-position:0 0,62% 0}
 }
+
+/* About and Contact banners */
+.photo-seward{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-seward-1920.webp");background-position:center,center 50%}
+.photo-runway{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-jber-runway-1920.webp");background-position:center,center 55%}
+@media (max-width:760px){
+  .photo-seward{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-seward-960.webp");background-position:0 0,72% 0}
+  .photo-runway{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-jber-runway-960.webp");background-position:0 0,55% 0}
+}
