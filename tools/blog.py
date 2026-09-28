@@ -130,7 +130,7 @@ def build(page, cta_band, SITE, OUT):
     <div class="wrap">
       {week}
       <h1 class="post-title">{esc_title}</h1>
-      <p class="byline">{" · ".join(x for x in (byline(p), "Compiled by Vigilant Cybersecurity", "Reviewed by Hutch White, LCCA") if x)}</p>
+      <p class="byline">{" · ".join(x for x in (byline(p), "Compiled by Vigilant Cybersecurity") if x)}</p>
     </div>
   </section>
 
