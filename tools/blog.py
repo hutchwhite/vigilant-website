@@ -12,7 +12,8 @@ Weekly briefings live as Markdown files in content/briefings/YYYY-MM-DD.md with 
     ...
 
 Archive editions (written later about an earlier week) add `archive: true` and `compiled: YYYY-MM-DD`.
-They keep the Monday-after-the-week `date` for ordering but are labeled with the date they were compiled.
+They keep the Monday-after-the-week `date` for ordering. The page shows no publish date for them; structured data,
+the feed and the sitemap use the compiled date so nothing is backdated.
 
 build() turns them into /blog/<date>-cmmc-weekly-briefing.html, the /blog index, feed.xml and sitemap.xml,
 and adds a "Latest briefing" teaser to the home page. Files whose header has `draft: true` are skipped.
@@ -111,7 +112,7 @@ def nice(d):
 
 def byline(p):
     if p["archive"]:
-        return f"Archive edition compiled {nice(p['compiled'])}"
+        return ""  # archive posts carry no publish date on the page (never backdated)
     return f"Published {nice(p['date'])}"
 
 
@@ -123,14 +124,13 @@ def build(page, cta_band, SITE, OUT):
     for p in posts:
         esc_title = html.escape(p["title"])
         week = f'<p class="eyebrow">CMMC Weekly Briefing · {html.escape(p["week"])}</p>' if p.get("week") else '<p class="eyebrow">CMMC Weekly Briefing</p>'
-        note = (f'        <p class="post-note">Archive edition. We started publishing weekly briefings in September 2026 and compiled this one on {nice(p["compiled"])} '
-                f'to cover {html.escape(p.get("week", "an earlier week"))}. Some sources were published after that week and are dated in the text.</p>\n') if p["archive"] else ""
+        note = ""
         body = f"""
   <section class="hero">
     <div class="wrap">
       {week}
       <h1 class="post-title">{esc_title}</h1>
-      <p class="byline">{byline(p)} · Compiled by Vigilant Cybersecurity · Reviewed by Hutch White, LCCA</p>
+      <p class="byline">{" · ".join(x for x in (byline(p), "Compiled by Vigilant Cybersecurity", "Reviewed by Hutch White, LCCA") if x)}</p>
     </div>
   </section>
 
@@ -168,8 +168,7 @@ def build(page, cta_band, SITE, OUT):
           <p class="label">{html.escape(p.get("week", nice(p["date"])))}</p>
           <h2><a href="{p["url"]}">{html.escape(p["title"])}</a></h2>
           <p>{html.escape(p["summary"])}</p>
-          <p class="meta">{byline(p)}</p>
-        </li>""" for p in posts)
+{f'          <p class="meta">{byline(p)}</p>' + chr(10) if byline(p) else ""}        </li>""" for p in posts)
         listing = f'      <ol class="post-list">\n{cards}\n      </ol>'
     else:
         listing = '      <p class="prose">The first weekly briefing is on its way. In the meantime, the <a href="/cmmc">CMMC status page</a> covers where things stand right now.</p>'
