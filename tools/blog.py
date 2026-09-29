@@ -179,7 +179,7 @@ def build(page, cta_band, SITE, OUT):
       <h1>CMMC Weekly Briefing</h1>
       <p class="lede">The past week's CMMC rule changes, Cyber AB news and enforcement actions, in plain English for Alaska defense contractors. Each briefing links to its primary sources.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="/contact?topic=updates">Get briefings by email</a>
+        <a class="btn btn-primary" href="/contact?topic=updates">Ask about email updates</a>
         <a class="btn btn-ghost" href="/feed.xml">RSS feed</a>
       </div>
     </div>
