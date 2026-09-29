@@ -46,6 +46,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{url}">{robots}
 <meta name="theme-color" content="#191970">
+<meta name="google-site-verification" content="ilmt1BuGJWr-0vZWOinix2JCIPiZpV2shWxJ1QzHnnA">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="Vigilant Cybersecurity">
 <meta property="og:title" content="{og_title}">
