@@ -166,7 +166,7 @@ home = f"""
         </article>
         <article class="card">
           <h3>Right-Sized</h3>
-          <p>We don't oversell tooling, padded artifacts, or controls beyond what your CMMC level requires. Just the work that closes your real gaps — no more, no less.</p>
+          <p>We don't sell managed services, software licenses or security tools, so our advice isn't shaped by what we resell. You get the controls and documentation your CMMC level requires to close your real gaps — no more, no less.</p>
         </article>
         <article class="card">
           <h3>Sustainable</h3>
@@ -231,6 +231,7 @@ services = f"""
       <h1>Service Packages for Defense Contractors</h1>
       <p class="lede">Vigilant Cybersecurity offers four core engagement types for small and mid-sized defense contractors.</p>
       <p class="prose">Each offering is scoped to a different point in your compliance journey. Start with a Gap Assessment if you're not sure where you stand, commit to a CMMC Readiness engagement when you're ready to close the gaps, bring in vCISO Services for ongoing leadership, or stay assessment-ready year-over-year with Compliance Sustainment.</p>
+      <p class="prose"><strong>We don't sell managed services, software licenses or security tools, so our advice isn't shaped by what we resell.</strong></p>
     </div>
   </section>
 
