@@ -91,6 +91,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
       <li><a href="/about">About</a></li>
       <li><a href="/contact">Contact</a></li>
       <li><a href="/privacy">Privacy</a></li>
+      <li><a href="https://cyberab.org/Member/LCCA-66640-White-Carl" rel="noopener">Cyber AB Marketplace</a></li>
     </ul>
     <div class="foot-meta">
       <span>© 2026 Vigilant Cybersecurity · Anchorage, Alaska</span>
@@ -374,6 +375,7 @@ about = f"""
         </ul>
       </div>
       </div>
+      <p class="cred-verify"><a href="https://cyberab.org/Member/LCCA-66640-White-Carl" rel="noopener">Verify Hutch's LCCA listing on the Cyber AB Marketplace</a></p>
     </div>
   </section>
 
@@ -392,7 +394,7 @@ about = f"""
 {cta_band("Get a Free Consultation", "Whether you're scoping a CMMC engagement, preparing for an upcoming defense contract, or just want a candid second opinion on your current security posture — we'd be glad to connect.")}
 """
 about_person = [{"@type": "Person", "@id": f"{SITE}/about#hutch", "name": "Hutch White",
-                 "jobTitle": "Founder and Principal Consultant", "image": f"{SITE}/assets/img/hutch-white-800.webp", "worksFor": {"@id": f"{SITE}/#business"},
+                 "jobTitle": "Founder and Principal Consultant", "image": f"{SITE}/assets/img/hutch-white-800.webp", "worksFor": {"@id": f"{SITE}/#business"}, "sameAs": ["https://cyberab.org/Member/LCCA-66640-White-Carl"],
                  "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": n} for _, n in CREDS]}]
 
 # ---------------------------------------------------------------- CONTACT

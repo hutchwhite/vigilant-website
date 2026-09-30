@@ -412,3 +412,5 @@ form.msg button:disabled{opacity:.6;cursor:wait}
 .teaser h2 a{color:inherit;text-decoration:none}
 .teaser h2 a:hover{text-decoration:underline}
 @media (max-width:980px){.nav{gap:6px 16px}.nav a{font-size:.94rem}}
+
+.cred-verify{margin-top:24px;font-weight:600}
