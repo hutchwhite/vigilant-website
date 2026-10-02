@@ -628,7 +628,7 @@ def add_icons(html):
 
 
 HERO_PHOTOS = {
-    "index.html": ("photo-e3", "Photo: E-3 Sentry and F-35As over the Bering Sea during a U.S. and Canadian maritime strike scenario, September 2026 (DVIDS)"),
+    "index.html": ("photo-cook-inlet", "Photo: Traylor Photography, sunset over Cook Inlet and the Fire Island wind farm, Anchorage, Alaska"),
     "cmmc.html": ("photo-sm1a", "Photo: Thomas Deaton, SM-1A site at Fort Greely, Alaska (DVIDS)"),
     "services.html": ("photo-cordova", "Photo: Alejandro Pena, Shepard Point near Cordova, Alaska (DVIDS)"),
     "about.html": ("photo-seward", "Photo: Airman 1st Class Miranda Parnell, 169th Civil Engineer Squadron at Seward, Alaska (DVIDS)"),
