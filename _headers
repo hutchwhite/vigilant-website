@@ -22,3 +22,9 @@ https://:version.:project.pages.dev/*
 
 /feed.xml
   Content-Type: application/rss+xml; charset=utf-8
+
+# email signature logo is loaded by mail clients on other origins
+/assets/vcs-signature-mark.png
+  ! Cross-Origin-Resource-Policy
+  Cross-Origin-Resource-Policy: cross-origin
+  Access-Control-Allow-Origin: *
