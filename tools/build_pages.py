@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Generates the Vigilant static site pages with a shared header, footer and head."""
-import json, os, re
+import hashlib, json, os, re
 
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://vigilantcybersecurity.net"
+# version the stylesheet URL so browsers fetch the new file whenever it changes
+CSS_VER = hashlib.sha256(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "site.css"), "rb").read()).hexdigest()[:10]
 BOOK = "https://outlook.office.com/book/VigilantCybersecurity1@vigilantcybersecurity.net/"
 FONTS = "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap"
 UPDATED = "2026-09-27"
@@ -58,7 +60,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS}">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v={CSS_VER}">
 <link rel="alternate" type="application/rss+xml" title="CMMC Weekly Briefing" href="{SITE}/feed.xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">{extra_head}
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
