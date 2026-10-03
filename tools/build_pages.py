@@ -23,6 +23,7 @@ BUSINESS = {
     "description": "Practitioner-led CMMC Level 1 and Level 2 readiness for small and mid-sized defense contractors.",
     "logo": f"{SITE}/assets/logo-512.png",
     "image": f"{SITE}/assets/og-image.png",
+    "sameAs": ["https://www.linkedin.com/company/vigilant-cybersecurity-llc"],
 }
 
 NAV = [("/", "Home"), ("/cmmc", "CMMC"), ("/services", "Services"), ("/blog", "Briefings"), ("/about", "About"), ("/contact", "Contact")]
@@ -94,7 +95,8 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
       <li><a href="/contact">Contact</a></li>
       <li><a href="/privacy">Privacy</a></li>
       <li><a href="https://cyberab.org/Member/LCCA-66640-White-Carl" rel="noopener">Cyber AB Marketplace</a></li>
-      <li><a href="https://www.linkedin.com/in/hutch-white" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://www.linkedin.com/company/vigilant-cybersecurity-llc" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://www.linkedin.com/in/hutch-white" rel="noopener">Hutch on LinkedIn</a></li>
     </ul>
     <div class="foot-meta">
       <span>© 2026 Vigilant Cybersecurity · Anchorage, Alaska</span>
@@ -429,6 +431,11 @@ contact = f"""
             <p class="label">Phone</p>
             <p>Speak directly with a practitioner.</p>
             <p class="val"><a href="tel:+19072295222">(907) 229-5222</a></p>
+          </div>
+          <div class="way">
+            <p class="label">LinkedIn</p>
+            <p>Follow for CMMC updates and new briefings.</p>
+            <p class="val"><a href="https://www.linkedin.com/company/vigilant-cybersecurity-llc" rel="noopener">Follow Vigilant on LinkedIn</a></p>
           </div>
         </div>
 
