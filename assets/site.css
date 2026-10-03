@@ -344,15 +344,27 @@ form.msg button:disabled{opacity:.6;cursor:wait}
 /* photo banners: a navy scrim keeps text readable, photo shows through on the right */
 .hero[class*="photo-"]{background-size:cover,cover;background-repeat:no-repeat}
 .photo-cook-inlet{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.82) 40%,rgba(15,18,54,.2) 100%),url("/assets/img/hero-cook-inlet-sunset-1920.webp");background-position:center,center 38%}
-.photo-sm1a{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.86) 45%,rgba(15,18,54,.45) 100%),url("/assets/img/hero-sm1a-1920.webp");background-position:center,center 45%}
 .photo-cordova{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.86) 45%,rgba(15,18,54,.4) 100%),url("/assets/img/hero-cordova-1920.webp");background-position:center,center 40%}
 @media (max-width:760px){
-  .photo-sm1a{background-image:linear-gradient(rgba(15,18,54,.86),rgba(15,18,54,.9)),url("/assets/img/hero-sm1a-960.webp")}
   .photo-cordova{background-image:linear-gradient(rgba(15,18,54,.86),rgba(15,18,54,.9)),url("/assets/img/hero-cordova-960.webp")}
 }
 .hero .credit{justify-self:end;margin-top:18px;font-size:.72rem;color:var(--on-dark-muted);opacity:.85;text-align:right}
 .hero:has(+ .status) .credit{margin-bottom:-8px}
 .foot-meta span:last-child{max-width:44rem;font-size:.8rem}
+
+/* Adobe Stock banners (licensed; no credit line) */
+.photo-pipeline{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.4) 100%),url("/assets/img/hero-trans-alaska-pipeline-1920.webp");background-position:center,center 55%}
+.photo-seward-tug{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-seward-tug-1920.webp");background-position:center,center 72%}
+.photo-rigs{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-cook-inlet-rigs-1920.webp");background-position:center,center 55%}
+.photo-briefings{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-seward-coal-loader-1920.webp");background-position:center,center 55%}
+.photo-alcan{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.45) 100%),url("/assets/img/hero-alcan-highway-1920.webp");background-position:center,center 75%}
+@media (max-width:760px){
+  .photo-pipeline{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-trans-alaska-pipeline-960.webp");background-position:0 0,70% 0}
+  .photo-seward-tug{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-seward-tug-960.webp");background-position:0 0,80% 0}
+  .photo-rigs{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-cook-inlet-rigs-960.webp");background-position:0 0,78% 0}
+  .photo-briefings{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-seward-coal-loader-960.webp");background-position:0 0,70% 0}
+  .photo-alcan{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-alcan-highway-960.webp");background-position:0 0,62% 0}
+}
 
 /* text beside a supporting photo */
 .split{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px 48px;align-items:start}
@@ -365,17 +377,9 @@ form.msg button:disabled{opacity:.6;cursor:wait}
 @media (max-width:760px){
   .hero[class*="photo-"]{padding-top:250px;background-color:var(--night);background-repeat:no-repeat;background-size:100% 100%,auto 290px}
   .photo-cook-inlet{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-cook-inlet-sunset-960.webp");background-position:0 0,82% 0}
-  .photo-sm1a{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-sm1a-960.webp");background-position:0 0,50% 0}
   .photo-cordova{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-cordova-960.webp");background-position:0 0,62% 0}
 }
 
-/* About and Contact banners */
-.photo-seward{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-seward-1920.webp");background-position:center,center 50%}
-.photo-runway{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-jber-runway-1920.webp");background-position:center,center 55%}
-@media (max-width:760px){
-  .photo-seward{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-seward-960.webp");background-position:0 0,72% 0}
-  .photo-runway{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-jber-runway-960.webp");background-position:0 0,55% 0}
-}
 
 /* heroes with an illustration beside the text */
 .hero.has-art .wrap{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:center;gap:24px 48px}

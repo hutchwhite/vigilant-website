@@ -98,7 +98,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
     </ul>
     <div class="foot-meta">
       <span>© 2026 Vigilant Cybersecurity · Anchorage, Alaska</span>
-      <span>Banner photos are public domain from DVIDS. The appearance of U.S. Department of Defense visual information does not imply or constitute DoD endorsement.</span>
+      <span>The Services page banner photo is public domain from DVIDS. The appearance of U.S. Department of Defense visual information does not imply or constitute DoD endorsement.</span>
     </div>
   </div>
 </footer>
@@ -550,9 +550,8 @@ privacy = """
 
 # ---------------------------------------------------------------- 404
 notfound = f"""
-  <section class="hero has-art">
+  <section class="hero photo-alcan">
     <div class="wrap">
-      <div class="hero-text">
       <p class="eyebrow">Error 404</p>
       <h1>That page isn't here</h1>
       <p class="lede">The link may be old or mistyped. These pages will get you back on track:</p>
@@ -561,8 +560,6 @@ notfound = f"""
         <a class="btn btn-ghost" href="/cmmc">CMMC status</a>
         <a class="btn btn-ghost" href="/contact">Contact</a>
       </div>
-      </div>
-      <img class="hero-art" src="/assets/img/art-404.svg" width="440" height="330" alt="">
     </div>
   </section>
 """
@@ -631,10 +628,10 @@ def add_icons(html):
 
 HERO_PHOTOS = {
     "index.html": ("photo-cook-inlet", None),  # Adobe Stock, licensed; no credit required
-    "cmmc.html": ("photo-sm1a", "Photo: Thomas Deaton, SM-1A site at Fort Greely, Alaska (DVIDS)"),
+    "cmmc.html": ("photo-pipeline", None),
     "services.html": ("photo-cordova", "Photo: Alejandro Pena, Shepard Point near Cordova, Alaska (DVIDS)"),
-    "about.html": ("photo-seward", "Photo: Airman 1st Class Miranda Parnell, 169th Civil Engineer Squadron at Seward, Alaska (DVIDS)"),
-    "contact.html": ("photo-runway", "Photo: Senior Airman Tala Hunt, runway expansion at Joint Base Elmendorf-Richardson (DVIDS)"),
+    "about.html": ("photo-seward-tug", None),
+    "contact.html": ("photo-rigs", None),
 }
 
 

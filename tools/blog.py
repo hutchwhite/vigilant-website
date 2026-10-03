@@ -126,7 +126,7 @@ def build(page, cta_band, SITE, OUT):
         week = f'<p class="eyebrow">CMMC Weekly Briefing · {html.escape(p["week"])}</p>' if p.get("week") else '<p class="eyebrow">CMMC Weekly Briefing</p>'
         note = ""
         body = f"""
-  <section class="hero">
+  <section class="hero photo-briefings">
     <div class="wrap">
       {week}
       <h1 class="post-title">{esc_title}</h1>
@@ -173,7 +173,7 @@ def build(page, cta_band, SITE, OUT):
     else:
         listing = '      <p class="prose">The first weekly briefing is on its way. In the meantime, the <a href="/cmmc">CMMC status page</a> covers where things stand right now.</p>'
     index_body = f"""
-  <section class="hero">
+  <section class="hero photo-briefings">
     <div class="wrap">
       <p class="eyebrow">Every Monday</p>
       <h1>CMMC Weekly Briefing</h1>
