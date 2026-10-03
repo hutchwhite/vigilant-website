@@ -98,7 +98,6 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
     </ul>
     <div class="foot-meta">
       <span>© 2026 Vigilant Cybersecurity · Anchorage, Alaska</span>
-      <span>The Services page banner photo is public domain from DVIDS. The appearance of U.S. Department of Defense visual information does not imply or constitute DoD endorsement.</span>
     </div>
   </div>
 </footer>
@@ -480,15 +479,12 @@ contact = f"""
 
 # ---------------------------------------------------------------- PRIVACY
 privacy = """
-  <section class="hero has-art">
+  <section class="hero photo-pole">
     <div class="wrap">
-      <div class="hero-text">
-        <p class="eyebrow">Privacy</p>
-        <h1>Privacy Policy</h1>
-        <p class="lede">What we collect through this site, why, and how it's protected.</p>
-        <p class="stamp">Last updated September 27, 2026</p>
-      </div>
-      <img class="hero-art" src="/assets/img/art-privacy.svg" width="400" height="330" alt="">
+      <p class="eyebrow">Privacy</p>
+      <h1>Privacy Policy</h1>
+      <p class="lede">What we collect through this site, why, and how it's protected.</p>
+      <p class="stamp">Last updated September 27, 2026</p>
     </div>
   </section>
 
@@ -629,7 +625,7 @@ def add_icons(html):
 HERO_PHOTOS = {
     "index.html": ("photo-cook-inlet", None),  # Adobe Stock, licensed; no credit required
     "cmmc.html": ("photo-pipeline", None),
-    "services.html": ("photo-cordova", "Photo: Alejandro Pena, Shepard Point near Cordova, Alaska (DVIDS)"),
+    "services.html": ("photo-homer", None),
     "about.html": ("photo-seward-tug", None),
     "contact.html": ("photo-rigs", None),
 }
