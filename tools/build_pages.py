@@ -165,7 +165,7 @@ home = f"""
       <div class="grid grid-3">
         <article class="card">
           <h3>Practitioner Led</h3>
-          <p>Every engagement is led personally by a CISSP and Lead CMMC Certified Assessor. No bench staff billing for "discovery" calls, no handoffs to a team you've never met, no junior consultants learning on your dime.</p>
+          <p>Every engagement is led personally by a CISSP and <a href="https://cyberab.org/Member/LCCA-66640-White-Carl" rel="noopener">Lead CMMC Certified Assessor</a>. No bench staff billing for "discovery" calls, no handoffs to a team you've never met, no junior consultants learning on your dime.</p>
         </article>
         <article class="card">
           <h3>Right-Sized</h3>
@@ -186,7 +186,7 @@ home = f"""
         <div class="prose">
           <p class="label">Your practitioner</p>
           <h2 id="meet-h">Hutch White, LCCA, CISSP</h2>
-          <p>Every Vigilant engagement is led by Hutch personally, from the first scoping call to the final evidence review. He is a Lead CMMC Certified Assessor with over 15 years in information security, based in Anchorage.</p>
+          <p>Every Vigilant engagement is led by Hutch personally, from the first scoping call to the final evidence review. He is a <a href="https://cyberab.org/Member/LCCA-66640-White-Carl" rel="noopener">Lead CMMC Certified Assessor</a> with over 15 years in information security, based in Anchorage.</p>
           <p><a href="/about">More about Hutch and his credentials</a></p>
         </div>
       </div>
@@ -346,7 +346,7 @@ about = f"""
         <div class="prose">
           <p class="label">Principal Consultant</p>
           <h2 id="hutch-h">About Hutch White</h2>
-          <p>Hutch White is the founder and principal consultant of Vigilant Cybersecurity. He is a Lead CMMC Certified Assessor and brings over 15 years of security experience across multiple industries, including hands-on information system security officer work inside a regulated organization and support for compliance audits at organizations with thousands of users.</p>
+          <p>Hutch White is the founder and principal consultant of Vigilant Cybersecurity. He is a <a href="https://cyberab.org/Member/LCCA-66640-White-Carl" rel="noopener">Lead CMMC Certified Assessor</a> and brings over 15 years of security experience across multiple industries, including hands-on information system security officer work inside a regulated organization and support for compliance audits at organizations with thousands of users.</p>
           <p>Hutch founded Vigilant Cybersecurity to bring real-world, operationally grounded compliance expertise to organizations that have historically had to choose between under-qualified local generalists and unaffordable national firms.</p>
           <p>He is based in Anchorage and serves clients across Alaska and nationwide.</p>
           <p class="label">Independence</p>
@@ -366,7 +366,7 @@ about = f"""
       <div class="cred-group cmmc">
         <p class="label">CMMC</p>
         <ul class="cred-list">
-          <li class="cred lead"><span class="badge"><img src="/assets/img/badge-lcca-240.webp" width="120" height="120" alt="" loading="lazy"></span><div><p class="abbr">LCCA</p><p class="name">Lead CMMC Certified Assessor</p></div></li>
+          <li class="cred lead"><span class="badge"><img src="/assets/img/badge-lcca-240.webp" width="120" height="120" alt="" loading="lazy"></span><div><p class="abbr">LCCA</p><p class="name">Lead CMMC Certified Assessor</p><p class="issuer">The Cyber AB · <a href="https://cyberab.org/Member/LCCA-66640-White-Carl" rel="noopener">View listing</a></p></div></li>
           <li class="cred"><span class="badge"><img src="/assets/img/badge-rp-240.webp" width="120" height="120" alt="" loading="lazy"></span><div><p class="abbr">RP</p><p class="name">Registered Practitioner</p><p class="issuer">The Cyber AB</p></div></li>
         </ul>
       </div>
@@ -431,6 +431,11 @@ contact = f"""
             <p class="label">Phone</p>
             <p>Speak directly with a practitioner.</p>
             <p class="val"><a href="tel:+19072295222">(907) 229-5222</a></p>
+          </div>
+          <div class="way">
+            <p class="label">Credentials</p>
+            <p>Verify Hutch's Lead CMMC Certified Assessor status with The Cyber AB.</p>
+            <p class="val"><a href="https://cyberab.org/Member/LCCA-66640-White-Carl" rel="noopener">View the Cyber AB Marketplace listing</a></p>
           </div>
           <div class="way">
             <p class="label">LinkedIn</p>
