@@ -432,8 +432,8 @@ contact = f"""
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow">Contact</p>
-      <h1>Secure Your Business Today</h1>
-      <p class="lede">Talk directly with the practitioner who will do the work. We typically respond within one business day.</p>
+      <h1>Start with a scoping call</h1>
+      <p class="lede">We take on a limited number of engagements at a time so each one gets direct, senior attention. A 30-minute scoping call is how we both decide whether to work together. Replies within one business day.</p>
     </div>
   </section>
 
@@ -442,34 +442,23 @@ contact = f"""
       <div class="contact-grid">
         <div class="ways">
           <div class="way">
-            <p class="label">Schedule a consultation</p>
-            <p>The fastest way to get on the calendar. Pick a time that works for you.</p>
-            <p><a class="btn btn-primary" href="{BOOK}">Book a Time</a></p>
+            <p class="label">Scoping call</p>
+            <p>30 minutes, no charge.</p>
+            <p><a class="btn btn-primary" href="{BOOK}">Book a time</a></p>
           </div>
           <div class="way">
             <p class="label">Email</p>
-            <p>For project inquiries, questions, or document exchange.</p>
+            <p>Project inquiries and document exchange.</p>
             <p class="val">consultations@vigilantcybersecurity.net</p>
           </div>
           <div class="way">
             <p class="label">Phone</p>
-            <p>Speak directly with a practitioner.</p>
             <p class="val"><a href="tel:+19072295222">(907) 229-5222</a></p>
-          </div>
-          <div class="way">
-            <p class="label">Credentials</p>
-            <p>Verify Hutch's Lead CMMC Certified Assessor status with The Cyber AB.</p>
-            <p class="val"><a href="https://cyberab.org/Member/LCCA-66640-White-Carl" rel="noopener">View the Cyber AB Marketplace listing</a></p>
-          </div>
-          <div class="way">
-            <p class="label">LinkedIn</p>
-            <p>Follow for CMMC updates and new briefings.</p>
-            <p class="val"><a href="https://www.linkedin.com/company/vigilant-cybersecurity-llc" rel="noopener">Follow Vigilant on LinkedIn</a></p>
           </div>
         </div>
 
         <form class="msg" id="contact-form" action="https://formspree.io/f/xwlpwapo" method="POST" aria-labelledby="form-h">
-          <h2 id="form-h">Send Us a Message</h2>
+          <h2 id="form-h">Tell us about your situation</h2>
           <div class="row2">
             <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name"></div>
             <div class="field"><label for="email">Email (required)</label><input id="email" name="email" type="email" autocomplete="email" required></div>
