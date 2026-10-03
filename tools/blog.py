@@ -15,6 +15,11 @@ Archive editions (written later about an earlier week) add `archive: true` and `
 They keep the Monday-after-the-week `date` for ordering. The page shows no publish date for them; structured data,
 the feed and the sitemap use the compiled date so nothing is backdated.
 
+Each news item ends with "*Why it matters:* ...", which renders as a labelled takeaway box. When an evergreen
+article covers the topic, end the takeaway with a link to it, e.g.
+"*Why it matters:* your score is what a prime will ask for. [How SPRS scoring works](/articles/sprs-scoring)".
+A site-internal link inside a takeaway renders as a "read more" link with an arrow.
+
 build() turns them into /blog/<date>-cmmc-weekly-briefing.html, the /blog index, feed.xml and sitemap.xml,
 and adds a "Latest briefing" teaser to the home page. Files whose header has `draft: true` are skipped.
 """
@@ -33,9 +38,15 @@ def _inline(text):
     text = html.escape(text, quote=False)
     text = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)",
                   lambda m: f'<a href="{html.escape(m.group(2))}" rel="noopener">{m.group(1)}</a>', text)
+    text = re.sub(r"\[([^\]]+)\]\((/[^)\s]*)\)",  # links to pages on this site
+                  lambda m: f'<a href="{html.escape(m.group(2))}">{m.group(1)}</a>', text)
     text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?!\w)", r"<em>\1</em>", text)
     text = re.sub(r"`([^`]+)`", r'<span class="cite">\1</span>', text)
+    # "*Why it matters:* ..." becomes a labelled takeaway, so it doesn't read like a link to another article
+    text = re.sub(r"<em>Why it matters:</em>\s*(.+)$",
+                  lambda m: '<span class="why"><span class="why-label">Why it matters</span>'
+                            + m.group(1)[:1].upper() + m.group(1)[1:] + "</span>", text, flags=re.S)
     return text
 
 
