@@ -29,22 +29,28 @@ BUSINESS = {
 NAV = [("/", "Home"), ("/cmmc", "CMMC"), ("/services", "Services"), ("/blog", "Briefings"), ("/about", "About"), ("/contact", "Contact")]
 
 
-# Links to credential listings always open in a new tab: Cyber AB Marketplace member pages, Credly badges,
-# ISC2 and GIAC verification pages. Applied to every page at build time, so new credential links get it
-# automatically. News or press links on those sites are left alone.
-CREDENTIAL_URLS = (r"cyberab\.org/Member/", r"credly\.com/(?:badges|users|earner)/",
-                   r"isc2\.org/[^\"]*[vV]erif", r"giac\.org/certified-professional/")
+# Every link to another site opens in a new tab (Hutch's preference), applied to every page at build time so
+# new links get it automatically. rel="noopener" is the security fix for target="_blank"; noreferrer is left
+# off so sites we link to (Cyber AB, LinkedIn) can still see visits came from us. Screen readers are told
+# the link opens a new tab. Links back to vigilantcybersecurity.net, mailto: and tel: are left alone.
+OWN_HOST = "vigilantcybersecurity.net"
+NEW_TAB_NOTE = '<span class="sr-only"> (opens in a new tab)</span>'
 
 
-def credential_links_new_tab(html):
+def external_links_new_tab(html):
     def fix(m):
-        tag = m.group(0)
-        if "target=" in tag:
-            return tag
-        tag = re.sub(r'\srel="[^"]*"', "", tag)
-        return tag[:-1] + ' target="_blank" rel="noopener noreferrer">'
-    pats = "|".join(CREDENTIAL_URLS)
-    return re.sub(r'<a\s[^>]*href="https?://(?:www\.)?(?:' + pats + r')[^"]*"[^>]*>', fix, html)
+        tag, inner = m.group(1), m.group(2)
+        href = re.search(r'href="(https?://[^"]+)"', tag)
+        if not href or re.match(r"https?://(?:www\.)?" + re.escape(OWN_HOST) + r"(?:[/:?#]|$)", href.group(1)):
+            return m.group(0)
+        if "target=" not in tag:
+            rel = re.search(r'\srel="([^"]*)"', tag)
+            tokens = [t for t in (rel.group(1).split() if rel else []) if t not in ("noopener", "noreferrer")] + ["noopener"]
+            tag = re.sub(r'\srel="[^"]*"', "", tag)[:-1] + f' target="_blank" rel="{" ".join(tokens)}">'
+        if "sr-only" not in inner:
+            inner += NEW_TAB_NOTE
+        return tag + inner + "</a>"
+    return re.sub(r'(<a\s[^>]*>)(.*?)</a>', fix, html, flags=re.S)
 
 
 def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_type="website", extra_head="", nav_path=None):
@@ -58,7 +64,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
     nav = "\n".join(
         f'        <li><a href="{h}"{cur if h == (nav_path or path) else ""}>{t}</a></li>' for h, t in NAV)
     robots = '\n<meta name="robots" content="noindex">' if noindex else ""
-    return credential_links_new_tab(f"""<!doctype html>
+    return external_links_new_tab(f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
