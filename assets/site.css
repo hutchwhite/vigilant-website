@@ -355,9 +355,11 @@ form.msg button:disabled{opacity:.6;cursor:wait}
 /* Adobe Stock banners (licensed; no credit line) */
 .photo-pipeline{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.4) 100%),url("/assets/img/hero-trans-alaska-pipeline-1920.webp");background-position:center,center 55%}
 .photo-seward-tug{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-seward-tug-1920.webp");background-position:center,center 72%}
-.photo-rigs{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-cook-inlet-rigs-1920.webp");background-position:center,center 55%}
+.photo-rigs{background-image:linear-gradient(90deg,rgba(15,18,54,.9) 0%,rgba(15,18,54,.62) 38%,rgba(15,18,54,.12) 70%,rgba(15,18,54,0) 100%),url("/assets/img/hero-cook-inlet-rigs-1920.webp");background-position:center,center 78%}
 .photo-briefings{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.3) 100%),url("/assets/img/hero-seward-coal-loader-1920.webp");background-position:center,center 55%}
-.photo-alcan{background-image:linear-gradient(90deg,rgba(15,18,54,.95) 0%,rgba(15,18,54,.84) 42%,rgba(15,18,54,.45) 100%),url("/assets/img/hero-alcan-highway-1920.webp");background-position:center,center 75%}
+.photo-alcan{background-image:linear-gradient(90deg,rgba(15,18,54,.9) 0%,rgba(15,18,54,.6) 38%,rgba(15,18,54,.15) 70%,rgba(15,18,54,.05) 100%),url("/assets/img/hero-alcan-highway-1920.webp");background-position:center,center 72%}
+/* scenic banners: taller so the landscape is not cropped to a thin strip */
+@media (min-width:761px){.photo-rigs,.photo-alcan{min-height:clamp(460px,40vw,620px);display:flex;flex-direction:column;justify-content:center}.photo-rigs > .wrap,.photo-alcan > .wrap{width:100%}}
 @media (max-width:760px){
   .photo-pipeline{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-trans-alaska-pipeline-960.webp");background-position:0 0,70% 0}
   .photo-seward-tug{background-image:linear-gradient(180deg,rgba(15,18,54,.05) 0,rgba(15,18,54,.15) 150px,rgba(15,18,54,.85) 250px,var(--night) 290px),url("/assets/img/hero-seward-tug-960.webp");background-position:0 0,80% 0}
