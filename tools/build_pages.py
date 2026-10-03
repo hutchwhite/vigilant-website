@@ -29,6 +29,24 @@ BUSINESS = {
 NAV = [("/", "Home"), ("/cmmc", "CMMC"), ("/services", "Services"), ("/blog", "Briefings"), ("/about", "About"), ("/contact", "Contact")]
 
 
+# Links to credential listings always open in a new tab: Cyber AB Marketplace member pages, Credly badges,
+# ISC2 and GIAC verification pages. Applied to every page at build time, so new credential links get it
+# automatically. News or press links on those sites are left alone.
+CREDENTIAL_URLS = (r"cyberab\.org/Member/", r"credly\.com/(?:badges|users|earner)/",
+                   r"isc2\.org/[^\"]*[vV]erif", r"giac\.org/certified-professional/")
+
+
+def credential_links_new_tab(html):
+    def fix(m):
+        tag = m.group(0)
+        if "target=" in tag:
+            return tag
+        tag = re.sub(r'\srel="[^"]*"', "", tag)
+        return tag[:-1] + ' target="_blank" rel="noopener noreferrer">'
+    pats = "|".join(CREDENTIAL_URLS)
+    return re.sub(r'<a\s[^>]*href="https?://(?:www\.)?(?:' + pats + r')[^"]*"[^>]*>', fix, html)
+
+
 def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_type="website", extra_head="", nav_path=None):
     url = SITE + path
     graph = [BUSINESS, {"@type": "WebPage", "@id": url + "#page", "url": url, "name": og_title,
@@ -40,7 +58,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
     nav = "\n".join(
         f'        <li><a href="{h}"{cur if h == (nav_path or path) else ""}>{t}</a></li>' for h, t in NAV)
     robots = '\n<meta name="robots" content="noindex">' if noindex else ""
-    return f"""<!doctype html>
+    return credential_links_new_tab(f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -105,7 +123,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
 </footer>
 </body>
 </html>
-"""
+""")
 
 
 def cta_band(heading, text, quote=None):
