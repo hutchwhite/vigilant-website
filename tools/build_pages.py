@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Generates the Vigilant static site pages with a shared header, footer and head."""
-import hashlib, json, os, re
+import hashlib, html as _html, json, os, re
 
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://vigilantcybersecurity.net"
@@ -71,7 +71,7 @@ def external_links_new_tab(html):
 
 def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_type="website", extra_head="", nav_path=None):
     url = SITE + path
-    graph = [BUSINESS, {"@type": "WebPage", "@id": url + "#page", "url": url, "name": og_title,
+    graph = [BUSINESS, {"@type": "WebPage", "@id": url + "#page", "url": url, "name": _html.unescape(og_title),
                         "dateModified": UPDATED, "publisher": {"@id": f"{SITE}/#business"}}]
     if extra_graph:
         graph += extra_graph
