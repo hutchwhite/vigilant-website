@@ -1,3 +1,9 @@
+/* fonts are self-hosted (SIL Open Font License): no third-party requests, faster first paint */
+@font-face{font-family:"Archivo";src:url("/assets/fonts/archivo-var.woff2") format("woff2");font-weight:500 800;font-stretch:75% 100%;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url("/assets/fonts/source-sans-3-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url("/assets/fonts/source-sans-3-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url("/assets/fonts/source-sans-3-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("/assets/fonts/ibm-plex-mono-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
 /* Vigilant Cybersecurity — "Alaska field-grade" theme
    Palette: midnight #191970 (brand) · night #0F1236 · glacier #7FB8D6 · snow #F3F6F9 · signal amber for status */
 :root{

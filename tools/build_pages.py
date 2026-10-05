@@ -7,7 +7,6 @@ SITE = "https://vigilantcybersecurity.net"
 # version the stylesheet URL so browsers fetch the new file whenever it changes
 CSS_VER = hashlib.sha256(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "site.css"), "rb").read()).hexdigest()[:10]
 BOOK = "https://outlook.office.com/book/VigilantCybersecurity1@vigilantcybersecurity.net/"
-FONTS = "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap"
 UPDATED = "2026-09-27"
 
 BUSINESS = {
@@ -37,6 +36,23 @@ OWN_HOST = "vigilantcybersecurity.net"
 NEW_TAB_NOTE = '<span class="sr-only"> (opens in a new tab)</span>'
 
 
+# The banner photo is the largest thing on each page. It is a CSS background, which browsers only discover after
+# the stylesheet loads, so each page preloads its own banner (phone and desktop sizes) at high priority.
+_CSS_TEXT = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "site.css")).read()
+HERO_IMAGES = {m.group(1): m.group(2) for m in re.finditer(
+    r'\.(photo-[a-z0-9-]+)\{background-image:[^}]*?url\("(/assets/img/[a-z0-9-]+)-1920\.webp"\)', _CSS_TEXT)}
+
+
+def preload_hero(html):
+    m = re.search(r'<section class="hero (photo-[a-z0-9-]+)"', html)
+    if not m or m.group(1) not in HERO_IMAGES or 'rel="preload" as="image"' in html:
+        return html
+    base = HERO_IMAGES[m.group(1)]
+    tags = (f'<link rel="preload" as="image" href="{base}-960.webp" media="(max-width:760px)" fetchpriority="high">\n'
+            f'<link rel="preload" as="image" href="{base}-1920.webp" media="(min-width:761px)" fetchpriority="high">\n')
+    return html.replace('<link rel="preload" href="/assets/fonts/archivo-var.woff2"', tags + '<link rel="preload" href="/assets/fonts/archivo-var.woff2"', 1)
+
+
 def external_links_new_tab(html):
     def fix(m):
         tag, inner = m.group(1), m.group(2)
@@ -64,7 +80,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
     nav = "\n".join(
         f'        <li><a href="{h}"{cur if h == (nav_path or path) else ""}>{t}</a></li>' for h, t in NAV)
     robots = '\n<meta name="robots" content="noindex">' if noindex else ""
-    return external_links_new_tab(f"""<!doctype html>
+    return preload_hero(external_links_new_tab(f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -82,9 +98,8 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
 <script type="application/ld+json">
 {ld}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="{FONTS}">
+<link rel="preload" href="/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v={CSS_VER}">
 <link rel="alternate" type="application/rss+xml" title="CMMC Weekly Briefing" href="{SITE}/feed.xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">{extra_head}
@@ -129,7 +144,7 @@ def page(path, title, desc, og_title, body, extra_graph=None, noindex=False, og_
 </footer>
 </body>
 </html>
-""")
+"""))
 
 
 def cta_band(heading, text, quote=None):
@@ -689,7 +704,7 @@ PAGES = {
 }
 
 for fname, (path, title, desc, og, body, extra) in PAGES.items():
-    html = add_hero_photo(fname, add_icons(page(path, title, desc, og, body, extra)))
+    html = preload_hero(add_hero_photo(fname, add_icons(page(path, title, desc, og, body, extra))))
     if fname == "contact.html":
         html = html.replace("</body>", '<script src="/assets/contact.js" defer></script>\n</body>')
     open(os.path.join(OUT, fname), "w").write(html)
