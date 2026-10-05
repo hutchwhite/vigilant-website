@@ -22,7 +22,7 @@ BUSINESS = {
     "description": "Practitioner-led CMMC Level 1 and Level 2 readiness for small and mid-sized defense contractors.",
     "logo": f"{SITE}/assets/logo-512.png",
     "image": f"{SITE}/assets/og-image.png",
-    "sameAs": ["https://www.linkedin.com/company/vigilant-cybersecurity-llc"],
+    "sameAs": ["https://www.linkedin.com/company/vigilant-cybersecurity-llc", "https://share.google/xp6ubrtZCGZh9iLR8"],
 }
 
 NAV = [("/", "Home"), ("/cmmc", "CMMC"), ("/services", "Services"), ("/blog", "Briefings"), ("/about", "About"), ("/contact", "Contact")]
